@@ -75,3 +75,4 @@ scripts/
 # Logo del scaffold (se usa favicon.svg propio)
 public/logo.svg
 .github/
+.export-tmp/
