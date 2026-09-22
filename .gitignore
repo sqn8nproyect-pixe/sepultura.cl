@@ -72,6 +72,8 @@ src/lib/db.ts
 # Artefactos internos de trabajo
 worklog.md
 scripts/
+# Estado de sesión del skill reanudar-proyecto
+.session/
 # Logo del scaffold (se usa favicon.svg propio)
 public/logo.svg
 .github/
