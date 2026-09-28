@@ -905,9 +905,15 @@ export default function Home() {
               </p>
               <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span>Sitio web realizado por</span>
-                <span className="font-semibold tracking-wide text-white/85">
-                  Cerotraba
-                </span>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={withBasePath("/img/cerotraba-logo.png")}
+                  alt="Cerotraba"
+                  width={371}
+                  height={64}
+                  className="h-7 w-auto"
+                  loading="lazy"
+                />
               </p>
             </div>
           </div>
