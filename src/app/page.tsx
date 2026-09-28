@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import {
-  Percent,
+  Tag,
   Clock3,
   Wallet,
   FileCheck2,
@@ -20,7 +20,6 @@ import {
   ExternalLink,
   Leaf,
   Mail,
-  BadgePercent,
 } from "lucide-react";
 import {
   Accordion,
@@ -65,7 +64,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "Venta de sepulturas en Parque El Recuerdo Américo Vespucio",
   description:
-    "Compra-venta de sepulturas y lotes en el Parque El Recuerdo Américo Vespucio, Santiago de Chile. Precios al 50% del valor oficial, entrega inmediata, transferencia notarial y documentación incluida.",
+    "Compra-venta de sepulturas y lotes en el Parque El Recuerdo Américo Vespucio, Santiago de Chile. Precio de oportunidad preferencial, entrega inmediata, transferencia notarial y documentación incluida.",
   serviceType: "Compra-venta de derechos de sepultura",
   areaServed: { "@type": "City", name: "Santiago de Chile" },
   provider: {
@@ -76,7 +75,7 @@ const serviceJsonLd = {
   offers: {
     "@type": "Offer",
     description:
-      "Sepulturas al 50% del valor oficial del parque, con 10% de costos de transferencia y documentación notarial cubiertos.",
+      "Sepulturas a precio de oportunidad preferencial, con 10% de costos de transferencia y documentación notarial cubiertos.",
   },
 };
 
@@ -89,10 +88,10 @@ const HERO_CHIPS = [
 
 const BENEFITS = [
   {
-    icon: Percent,
-    title: "50% del valor oficial",
+    icon: Tag,
+    title: "Precio de oportunidad preferencial",
     description:
-      "Adquiere tu sepultura a la mitad del precio de lista que cobra el parque directamente. Un ahorro real y verificable en una decisión tan importante para tu familia.",
+      "Adquiere tu sepultura a un precio preferencial muy por debajo del valor de lista del parque. Un ahorro real y verificable en una decisión tan importante para tu familia.",
     highlighted: true,
   },
   {
@@ -129,7 +128,7 @@ const STEPS = [
     icon: FileText,
     title: "Recibe la propuesta completa",
     description:
-      "Te enviamos la información de la sepultura disponible: precio final al 50%, ubicación dentro del parque y todos los detalles por escrito.",
+      "Te enviamos la información de la sepultura disponible: precio final de oportunidad, ubicación dentro del parque y todos los detalles por escrito.",
   },
   {
     icon: PenLine,
@@ -267,7 +266,7 @@ export default function Home() {
                 className="mt-6 font-serif text-4xl font-semibold leading-[1.15] text-white sm:text-5xl lg:text-6xl"
               >
                 Sepulturas en el Parque El Recuerdo Américo Vespucio{" "}
-                <span className="text-gold">al 50% del valor oficial</span>
+                <span className="text-gold">a precio de oportunidad preferencial</span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
@@ -318,7 +317,7 @@ export default function Home() {
                   id="beneficios-title"
                   className="mt-3 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
                 >
-                  Mitad de precio, sin riesgos ni letra chica
+                  Precio preferencial, sin riesgos ni letra chica
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   Sabemos que comprar una sepultura es una decisión emocional y
@@ -457,9 +456,9 @@ export default function Home() {
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   Fotografías reales de los lotes disponibles, tomadas en el
                   Parque El Recuerdo Américo Vespucio. Elige el entorno que más
-                  te acomode y consulta su valor final — al 50% del valor
-                  oficial — directamente por WhatsApp. Stock limitado: esta
-                  galería se actualiza a medida que se venden.
+                  te acomode y consulta su valor final — a precio de
+                  oportunidad preferencial — directamente por WhatsApp. Stock
+                  limitado: esta galería se actualiza a medida que se venden.
                 </p>
               </div>
 
@@ -482,8 +481,8 @@ export default function Home() {
                         aria-hidden="true"
                         className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-gold px-3 py-1 text-xs font-bold text-forest-deep shadow"
                       >
-                        <BadgePercent className="size-3.5" />
-                        50% dcto.
+                        <Tag className="size-3.5" />
+                        Precio preferencial
                       </span>
                       <span
                         className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${
@@ -532,7 +531,7 @@ export default function Home() {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Revisamos contigo la disponibilidad completa del día y te
-                    enviamos los valores al 50% por WhatsApp.
+                    enviamos los valores preferenciales por WhatsApp.
                   </p>
                   <WhatsAppButton
                     label="Ver disponibilidad completa"

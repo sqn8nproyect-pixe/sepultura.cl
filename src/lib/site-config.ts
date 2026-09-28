@@ -25,7 +25,7 @@ export const withBasePath = (p: string) =>
 
 // Mensaje preconfigurado: nombre del servicio + ubicación + solicitud de info
 export const WHATSAPP_MESSAGE =
-  "Hola, estoy interesado(a) en sepulturas en el Parque El Recuerdo Américo Vespucio (Santiago). Vi la oferta al 50% del valor oficial y quisiera recibir información sobre precios y disponibilidad. ¡Gracias!";
+  "Hola, estoy interesado(a) en sepulturas en el Parque El Recuerdo Américo Vespucio (Santiago). Vi que tienen un precio de oportunidad preferencial y quisiera recibir información sobre precios y disponibilidad. ¡Gracias!";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
@@ -45,9 +45,9 @@ export const BUSINESS_HOURS = [
 // ─────────────────────────────────────────────────────────────
 export const FAQS = [
   {
-    question: "¿Por qué la sepultura cuesta 50% menos que en el parque?",
+    question: "¿Por qué la sepultura tiene un precio de oportunidad preferencial?",
     answer:
-      "Trabajamos con sepulturas ya constituidas y disponibles para transferencia inmediata, adquiridas a valores preferentes que el parque ya no ofrece en su lista de precios actual. Al vender a la mitad del valor oficial, ambas partes ganan: tú accedes a un precio muy difícil de obtener directamente en el parque y nosotros damos rotación a nuestro inventario. Es una oportunidad de mercado real, no una oferta engañosa ni un precio sujeto a condiciones ocultas.",
+      "Trabajamos con sepulturas ya constituidas y disponibles para transferencia inmediata, adquiridas a valores preferentes que el parque ya no ofrece en su lista de precios actual. Al vender a un precio de oportunidad, ambas partes ganan: tú accedes a un valor muy difícil de obtener directamente en el parque y nosotros damos rotación a nuestro inventario. Es una oportunidad de mercado real, no una oferta engañosa ni un precio sujeto a condiciones ocultas.",
   },
   {
     question: "¿Es legal comprar una sepultura a un particular o intermediario?",
@@ -95,7 +95,7 @@ export const FAQS = [
 export const TESTIMONIALS = [
   {
     quote:
-      "El proceso fue mucho más simple de lo que imaginaba. Todo se hizo ante notario y en pocos días teníamos la sepultura a nombre de la familia, a la mitad de lo que nos cotizaban directamente en el parque.",
+      "El proceso fue mucho más simple de lo que imaginaba. Todo se hizo ante notario y en pocos días teníamos la sepultura a nombre de la familia, con un precio mucho más conveniente que lo que nos cotizaban directamente en el parque.",
     author: "M. T.",
     place: "Santiago",
   },
@@ -107,7 +107,7 @@ export const TESTIMONIALS = [
   },
   {
     quote:
-      "Lo que más valoro es la transparencia. Nos explicaron cada paso, el contrato quedó registrado en el parque y el ahorro fue cercano al 50%. Los recomendaría sin dudarlo.",
+      "Lo que más valoro es la transparencia. Nos explicaron cada paso, el contrato quedó registrado en el parque y el precio final resultó muy conveniente frente al valor de lista. Los recomendaría sin dudarlo.",
     author: "J. A.",
     place: "Huechuraba",
   },
@@ -118,8 +118,8 @@ export const TESTIMONIALS = [
 // ✅ FOTOS REALES del Parque El Recuerdo Américo Vespucio
 //    (galería personal del vendedor, seleccionadas 10 de 26).
 //    SIN precios en el sitio: los valores se entregan por
-//    WhatsApp (la oferta al 50% del valor oficial se comunica
-//    en el resto de la página).
+//    WhatsApp (el precio de oportunidad preferencial se
+//    comunica en el resto de la página).
 //    Para agregar/quitar fichas: edita este array y guarda la
 //    foto correspondiente en public/img/ (600x800, 3:4).
 // ─────────────────────────────────────────────────────────────
