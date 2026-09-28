@@ -78,3 +78,4 @@ scripts/
 public/logo.svg
 .github/
 .export-tmp/
+.deploy-gh/
