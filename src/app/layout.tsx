@@ -35,11 +35,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default:
-      "Sepulturas en Venta | Parque El Recuerdo Américo Vespucio, Santiago | 50% Dcto",
+      "Sepulturas en Venta | Parque El Recuerdo Américo Vespucio, Santiago | Precios de Oportunidad",
     template: "%s | Sepulturas Américo Vespucio",
   },
   description:
-    "Sepulturas y lotes en venta en el Parque El Recuerdo Américo Vespucio, Santiago. Adquiérelas al 50% del valor oficial del parque, con entrega inmediata, transferencia notarial y documentación incluida. Consulta por WhatsApp.",
+    "Sepulturas y lotes en venta en el Parque El Recuerdo Américo Vespucio, Santiago. Adquiérelas a precio de oportunidad preferencial, con entrega inmediata, transferencia notarial y documentación incluida. Consulta por WhatsApp.",
   keywords: [
     "sepulturas en venta Santiago",
     "lotes de sepultura en venta",
@@ -65,9 +65,9 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sepulturas en Parque El Recuerdo Américo Vespucio al 50% | Santiago",
+    title: "Sepulturas en Parque El Recuerdo Américo Vespucio a Precio Preferencial | Santiago",
     description:
-      "Adquiere tu sepultura al 50% del valor oficial. Entrega inmediata, transferencia 100% notarial y documentación cubierta. Consulta por WhatsApp.",
+      "Adquiere tu sepultura a precio de oportunidad preferencial. Entrega inmediata, transferencia 100% notarial y documentación cubierta. Consulta por WhatsApp.",
     url: "/",
     siteName: "Sepulturas Américo Vespucio",
     locale: "es_CL",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sepulturas en Parque El Recuerdo Américo Vespucio al 50% | Santiago",
+    title: "Sepulturas en Parque El Recuerdo Américo Vespucio a Precio Preferencial | Santiago",
     description:
       "Entrega inmediata · Transferencia notarial · Documentación incluida. Consulta por WhatsApp.",
   },
