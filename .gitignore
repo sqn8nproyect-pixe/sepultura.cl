@@ -79,3 +79,6 @@ public/logo.svg
 .github/
 .export-tmp/
 .deploy-gh/
+
+# Artefactos de herramientas del sistema
+tool-results/
