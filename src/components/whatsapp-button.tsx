@@ -21,6 +21,8 @@ interface WhatsAppButtonProps {
   size?: "default" | "lg";
   /** Desactiva la animación ping (usado en el botón flotante, que la incluye aparte) */
   plain?: boolean;
+  /** URL alternativa de WhatsApp (ej: mensaje preconfigurado por producto específico) */
+  href?: string;
 }
 
 // Botón principal de llamada a la acción → abre WhatsApp con mensaje preconfigurado
@@ -28,10 +30,11 @@ export function WhatsAppButton({
   label = "Consultar por WhatsApp",
   className,
   size = "default",
+  href,
 }: WhatsAppButtonProps) {
   return (
     <a
-      href={WHATSAPP_URL}
+      href={href ?? WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`${label} (abre WhatsApp con un mensaje preconfigurado)`}

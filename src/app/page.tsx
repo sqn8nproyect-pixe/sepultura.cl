@@ -20,6 +20,8 @@ import {
   ExternalLink,
   Leaf,
   Mail,
+  Users,
+  BadgePercent,
 } from "lucide-react";
 import {
   Accordion,
@@ -41,6 +43,9 @@ import {
   EMAIL_MAILTO,
   GOOGLE_MAPS_URL,
   BUSINESS_HOURS,
+  SEPULTURAS,
+  sepulturaWhatsAppUrl,
+  formatCLP,
 } from "@/lib/site-config";
 
 // ─────────────────────────────────────────────────────────────
@@ -216,6 +221,9 @@ export default function Home() {
               </a>
               <a href="#proceso" className="transition-colors hover:text-primary">
                 Cómo funciona
+              </a>
+              <a href="#sepulturas" className="transition-colors hover:text-primary">
+                Sepulturas
               </a>
               <a href="#ubicacion" className="transition-colors hover:text-primary">
                 Ubicación
@@ -427,6 +435,139 @@ export default function Home() {
                   className="w-full shrink-0 bg-white text-forest-deep shadow-none hover:bg-white/90 lg:w-auto"
                 />
               </div>
+            </div>
+          </section>
+
+          {/* ═══════════ SEPULTURAS DISPONIBLES ═══════════ */}
+          <section
+            id="sepulturas"
+            aria-labelledby="sepulturas-title"
+            className="scroll-mt-20 py-16 sm:py-24"
+          >
+            <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+              <div className="mx-auto max-w-2xl text-center">
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/80">
+                  Disponibilidad actual
+                </p>
+                <h2
+                  id="sepulturas-title"
+                  className="mt-3 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
+                >
+                  Sepulturas disponibles en el parque
+                </h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  Lotes seleccionados con transferencia inmediata y documentación
+                  notarial incluida, todos al 50% de su valor oficial. Stock
+                  limitado: esta lista se actualiza a medida que se venden.
+                </p>
+              </div>
+
+              <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {SEPULTURAS.map((s) => (
+                  <li
+                    key={s.id}
+                    className="group flex flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    {/* Foto + badges */}
+                    <div className="relative aspect-[4/3] w-full overflow-hidden">
+                      <Image
+                        src={s.imagen}
+                        alt={`${s.titulo} — ${s.sector}, Parque El Recuerdo Américo Vespucio`}
+                        fill
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <span
+                        aria-hidden="true"
+                        className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-gold px-3 py-1 text-xs font-bold text-forest-deep shadow"
+                      >
+                        <BadgePercent className="size-3.5" />
+                        50% dcto.
+                      </span>
+                      <span
+                        className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${
+                          s.disponible
+                            ? "bg-forest-deep/85 text-white"
+                            : "bg-neutral-700/80 text-neutral-200"
+                        }`}
+                      >
+                        {s.disponible ? "Disponible" : "Reservada"}
+                      </span>
+                    </div>
+
+                    {/* Contenido de la ficha */}
+                    <div className="flex flex-1 flex-col p-6">
+                      <h3 className="font-serif text-xl font-semibold leading-snug">
+                        {s.titulo}
+                      </h3>
+                      <p className="mt-1.5 flex items-center gap-1.5 text-sm text-muted-foreground">
+                        <MapPin
+                          className="size-4 shrink-0 text-gold"
+                          aria-hidden="true"
+                        />
+                        {s.sector}
+                      </p>
+                      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                        {s.descripcion}
+                      </p>
+
+                      <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                        <div className="flex items-center gap-1.5">
+                          <dt className="sr-only">Capacidad</dt>
+                          <Users
+                            className="size-4 shrink-0 text-primary/70"
+                            aria-hidden="true"
+                          />
+                          <dd className="text-muted-foreground">{s.capacidad}</dd>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <dt className="sr-only">Tipo</dt>
+                          <dd className="text-muted-foreground">{s.tipo}</dd>
+                        </div>
+                      </dl>
+
+                      {/* Precio */}
+                      <div className="mt-5 border-t pt-4">
+                        <p className="text-sm text-muted-foreground">
+                          Valor oficial{" "}
+                          <span className="line-through">
+                            {formatCLP(s.precioOficial)}
+                          </span>
+                        </p>
+                        <p className="mt-0.5 font-serif text-2xl font-bold text-forest-deep">
+                          {formatCLP(s.precioReferencia)}
+                          <span className="ml-2 align-middle text-xs font-semibold tracking-wide text-gold uppercase">
+                            50% dcto.
+                          </span>
+                        </p>
+                      </div>
+
+                      <WhatsAppButton
+                        label={
+                          s.disponible
+                            ? "Consultar por esta sepultura"
+                            : "Consultar por alternativas"
+                        }
+                        href={sepulturaWhatsAppUrl(s)}
+                        className="mt-5 w-full"
+                      />
+                    </div>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
+                ¿Buscas otra ubicación o tipo de sepultura dentro del parque?{" "}
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-primary underline-offset-4 hover:underline"
+                >
+                  Escríbenos por WhatsApp
+                </a>{" "}
+                y revisamos la disponibilidad completa del día.
+              </p>
             </div>
           </section>
 

@@ -101,3 +101,77 @@ export const TESTIMONIALS = [
     place: "Huechuraba",
   },
 ];
+
+// ─────────────────────────────────────────────────────────────
+// GALERÍA DE SEPULTURAS DISPONIBLES
+// ⚠️ PRECIOS PLACEHOLDER — reemplazar por los valores reales de
+//    cada lote antes de promocionar. Para agregar una ficha:
+//    duplica un objeto, ajusta los datos y guarda la foto en
+//    public/img/ (ideal 900x675, proporción 4:3).
+// ─────────────────────────────────────────────────────────────
+export type Sepultura = {
+  id: string;
+  titulo: string;
+  sector: string;
+  tipo: string;
+  capacidad: string;
+  descripcion: string;
+  /** Precio de venta ofrecido (≈ 50% del valor oficial) */
+  precioReferencia: number;
+  /** Valor oficial del parque — se muestra tachado como referencia */
+  precioOficial: number;
+  imagen: string;
+  disponible: boolean;
+};
+
+export const SEPULTURAS: Sepultura[] = [
+  {
+    id: "jardin",
+    titulo: "Sepultura en Jardín",
+    sector: "Jardines del parque",
+    tipo: "Individual / Pareja",
+    capacidad: "1–2 cuerpos",
+    descripcion:
+      "Lote en pradera ajardinada con señalética de sector, mantención del área verde incluida y acceso por caminos interiores.",
+    precioReferencia: 2490000,
+    precioOficial: 4980000,
+    imagen: "/img/sep-jardin.jpg",
+    disponible: true,
+  },
+  {
+    id: "pradera",
+    titulo: "Sepultura Familiar en Pradera",
+    sector: "Pradera norte · vistas abiertas",
+    tipo: "Familiar",
+    capacidad: "2–4 cuerpos",
+    descripcion:
+      "Posición preferente en pradera amplia con árboles y entorno panorámico. Ideal para familias que buscan espacio conjunto.",
+    precioReferencia: 3290000,
+    precioOficial: 6580000,
+    imagen: "/img/sep-pradera.jpg",
+    disponible: true,
+  },
+  {
+    id: "pabellon",
+    titulo: "Nicho en Pabellón",
+    sector: "Pabellones con jardín",
+    tipo: "Nicho / Osario",
+    capacidad: "1 cuerpo (urna o cajón)",
+    descripcion:
+      "Nicho en pabellón techado con jardines interiores, floristería cercana y acceso pavimentado desde el estacionamiento.",
+    precioReferencia: 1490000,
+    precioOficial: 2980000,
+    imagen: "/img/sep-pabellon.jpg",
+    disponible: true,
+  },
+];
+
+// Mensaje de WhatsApp preconfigurado por producto (más específico = más conversión)
+export function sepulturaWhatsAppUrl(s: Sepultura): string {
+  const msg = `Hola, me interesa la "${s.titulo}" (${s.sector}) que vi en la galería de sepulturas del Parque El Recuerdo Américo Vespucio. ¿Sigue disponible y cuál sería el precio final con todo incluido? ¡Gracias!`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+}
+
+// Formato de pesos chilenos: $4.980.000
+export const formatCLP = (n: number): string =>
+  "$" + n.toLocaleString("es-CL");
