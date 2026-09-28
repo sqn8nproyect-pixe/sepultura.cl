@@ -173,3 +173,12 @@
     animation: none;
   }
 }
+
+/* ── Carrusel: oculta la barra de scroll horizontal en móviles ── */
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

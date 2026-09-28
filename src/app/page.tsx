@@ -1,5 +1,6 @@
 "use client";
 
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import {
   Tag,
@@ -20,6 +21,7 @@ import {
   ExternalLink,
   Leaf,
   Mail,
+  MoveHorizontal,
 } from "lucide-react";
 import {
   Accordion,
@@ -168,6 +170,45 @@ const LOCATION_FACTS = [
 ];
 
 export default function Home() {
+  // ── Carrusel móvil de la galería (scroll-snap nativo) ──
+  const carruselRef = useRef<HTMLUListElement>(null);
+  const [fichaActiva, setFichaActiva] = useState(0);
+  const [puedeIzq, setPuedeIzq] = useState(false);
+  const [puedeDer, setPuedeDer] = useState(true);
+  const totalFichas = SEPULTURAS.length + 1; // lotes + tarjeta CTA
+
+  const actualizarCarrusel = useCallback(() => {
+    const el = carruselRef.current;
+    if (!el) return;
+    const maxScroll = el.scrollWidth - el.clientWidth;
+    setPuedeIzq(el.scrollLeft > 8);
+    setPuedeDer(el.scrollLeft < maxScroll - 8);
+    const primera = el.children[0] as HTMLElement | undefined;
+    if (primera && primera.offsetWidth > 0) {
+      const paso = primera.offsetWidth + 20; // gap-5 = 1.25rem
+      const idx = Math.min(
+        totalFichas - 1,
+        Math.max(0, Math.round(el.scrollLeft / paso)),
+      );
+      setFichaActiva(idx);
+    }
+  }, [totalFichas]);
+
+  useEffect(() => {
+    actualizarCarrusel();
+    window.addEventListener("resize", actualizarCarrusel);
+    return () => window.removeEventListener("resize", actualizarCarrusel);
+  }, [actualizarCarrusel]);
+
+  const irAFicha = (i: number) => {
+    const hijo = carruselRef.current?.children[i] as HTMLElement | undefined;
+    hijo?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  };
+
   return (
     <>
       {/* Datos estructurados para Google (SEO local) */}
@@ -462,11 +503,37 @@ export default function Home() {
                 </p>
               </div>
 
-              <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {/* Pista para el carrusel en pantallas pequeñas */}
+              <p className="mt-6 flex items-center justify-center gap-2 text-sm text-muted-foreground/80 lg:hidden">
+                <MoveHorizontal className="size-4 shrink-0 text-gold" aria-hidden="true" />
+                Desliza para ver todos los lotes
+              </p>
+
+              <div className="relative mt-4 sm:mt-6 lg:mt-12">
+                {/* Degradados de borde: insinúan que hay más contenido */}
+                <div
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-y-0 -left-4 z-10 w-12 bg-gradient-to-r from-background to-transparent transition-opacity duration-300 sm:-left-6 lg:hidden ${
+                    puedeIzq ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+                <div
+                  aria-hidden="true"
+                  className={`pointer-events-none absolute inset-y-0 -right-4 z-10 w-12 bg-gradient-to-l from-background to-transparent transition-opacity duration-300 sm:-right-6 lg:hidden ${
+                    puedeDer ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+
+                <ul
+                  ref={carruselRef}
+                  onScroll={actualizarCarrusel}
+                  aria-label="Carrusel de sepulturas disponibles"
+                  className="-mx-4 flex snap-x snap-mandatory gap-5 scroll-px-4 overflow-x-auto overscroll-x-contain scroll-smooth px-4 pb-2 pt-1 scrollbar-hide motion-reduce:scroll-auto sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0"
+                >
                 {SEPULTURAS.map((s) => (
                   <li
                     key={s.id}
-                    className="group flex flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-shadow hover:shadow-md"
+                    className="group flex w-[78vw] max-w-[340px] shrink-0 snap-center flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-shadow hover:shadow-md sm:w-[46vw] sm:max-w-none md:w-[38vw] lg:w-auto"
                   >
                     {/* Foto + badges */}
                     <div className="relative aspect-[3/4] w-full overflow-hidden">
@@ -474,7 +541,7 @@ export default function Home() {
                         src={s.imagen}
                         alt={`${s.titulo} — ${s.sector}, Parque El Recuerdo Américo Vespucio`}
                         fill
-                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 46vw, 78vw"
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <span
@@ -524,8 +591,8 @@ export default function Home() {
                   </li>
                 ))}
 
-                {/* Tarjeta CTA para completar la grilla (fila final) */}
-                <li className="flex flex-col items-center justify-center rounded-2xl border border-primary/20 bg-secondary/60 p-8 text-center sm:col-span-2">
+                {/* Tarjeta CTA para completar la grilla (última del carrusel) */}
+                <li className="flex w-[78vw] max-w-[340px] shrink-0 snap-center flex-col items-center justify-center rounded-2xl border border-primary/20 bg-secondary/60 p-8 text-center sm:w-[46vw] sm:max-w-none md:w-[38vw] lg:col-span-2 lg:w-auto">
                   <p className="font-serif text-xl font-semibold leading-snug text-forest-deep">
                     ¿Buscas otra ubicación dentro del parque?
                   </p>
@@ -538,7 +605,31 @@ export default function Home() {
                     className="mt-5 w-full"
                   />
                 </li>
-              </ul>
+                </ul>
+
+                {/* Puntos de navegación del carrusel (solo móvil/tablet) */}
+                <div
+                  role="tablist"
+                  aria-label="Ir a una ficha del carrusel"
+                  className="mt-3 flex flex-wrap items-center justify-center gap-1.5 lg:hidden"
+                >
+                  {Array.from({ length: totalFichas }, (_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={fichaActiva === i}
+                      aria-label={`Ir a la ficha ${i + 1} de ${totalFichas}`}
+                      onClick={() => irAFicha(i)}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        fichaActiva === i
+                          ? "w-6 bg-primary"
+                          : "w-1.5 bg-primary/25 hover:bg-primary/50"
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
