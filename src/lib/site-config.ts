@@ -189,11 +189,11 @@ export const SEPULTURAS: Sepultura[] = [
   },
   {
     id: "lote-07",
-    titulo: "Sepultura bajo cedro",
-    sector: "Arboleda de cedros",
+    titulo: "Sepultura con vista a cumbre cordillerana",
+    sector: "Sector B40 · pradera de cumbres",
     descripcion:
-      "Lote al pie de un cedro maduro, con el verde del césped y la copa del árbol como entorno natural permanente.",
-    imagen: withBasePath("/img/sep-lote-07.jpg"),
+      "Lote en pradera amplia y luminosa, con la cumbre cordillerana como paisaje de fondo y arbolado alto en el entorno. Sector sereno y despejado.",
+    imagen: withBasePath("/img/sep-real-07.jpg"),
     disponible: true,
   },
   {
