@@ -104,74 +104,118 @@ export const TESTIMONIALS = [
 
 // ─────────────────────────────────────────────────────────────
 // GALERÍA DE SEPULTURAS DISPONIBLES
-// ⚠️ PRECIOS PLACEHOLDER — reemplazar por los valores reales de
-//    cada lote antes de promocionar. Para agregar una ficha:
-//    duplica un objeto, ajusta los datos y guarda la foto en
-//    public/img/ (ideal 900x675, proporción 4:3).
+// ✅ FOTOS REALES del Parque El Recuerdo Américo Vespucio
+//    (galería personal del vendedor, seleccionadas 10 de 26).
+//    SIN precios en el sitio: los valores se entregan por
+//    WhatsApp (la oferta al 50% del valor oficial se comunica
+//    en el resto de la página).
+//    Para agregar/quitar fichas: edita este array y guarda la
+//    foto correspondiente en public/img/ (600x800, 3:4).
 // ─────────────────────────────────────────────────────────────
 export type Sepultura = {
   id: string;
   titulo: string;
   sector: string;
-  tipo: string;
-  capacidad: string;
   descripcion: string;
-  /** Precio de venta ofrecido (≈ 50% del valor oficial) */
-  precioReferencia: number;
-  /** Valor oficial del parque — se muestra tachado como referencia */
-  precioOficial: number;
   imagen: string;
   disponible: boolean;
 };
 
 export const SEPULTURAS: Sepultura[] = [
   {
-    id: "jardin",
-    titulo: "Sepultura en Jardín",
-    sector: "Jardines del parque",
-    tipo: "Individual / Pareja",
-    capacidad: "1–2 cuerpos",
+    id: "lote-01",
+    titulo: "Sepultura en pradera soleada",
+    sector: "Pradera con sol · árboles al costado",
     descripcion:
-      "Lote en pradera ajardinada con señalética de sector, mantención del área verde incluida y acceso por caminos interiores.",
-    precioReferencia: 2490000,
-    precioOficial: 4980000,
-    imagen: "/img/sep-jardin.jpg",
+      "Lote destacado sobre césped cuidado, en pradera abierta con sol durante la mayor parte del día y árboles en el entorno.",
+    imagen: "/img/sep-lote-01.jpg",
     disponible: true,
   },
   {
-    id: "pradera",
-    titulo: "Sepultura Familiar en Pradera",
-    sector: "Pradera norte · vistas abiertas",
-    tipo: "Familiar",
-    capacidad: "2–4 cuerpos",
+    id: "lote-02",
+    titulo: "Sepultura en pradera norte",
+    sector: "Pradera norte · filas ordenadas",
     descripcion:
-      "Posición preferente en pradera amplia con árboles y entorno panorámico. Ideal para familias que buscan espacio conjunto.",
-    precioReferencia: 3290000,
-    precioOficial: 6580000,
-    imagen: "/img/sep-pradera.jpg",
+      "Ubicación en pradera amplia con caminos planos y área verde recién mantenida. Sector tranquilo y de fácil acceso.",
+    imagen: "/img/sep-lote-02.jpg",
     disponible: true,
   },
   {
-    id: "pabellon",
-    titulo: "Nicho en Pabellón",
-    sector: "Pabellones con jardín",
-    tipo: "Nicho / Osario",
-    capacidad: "1 cuerpo (urna o cajón)",
+    id: "lote-03",
+    titulo: "Sepultura con vista panorámica",
+    sector: "Jardines con vista abierta",
     descripcion:
-      "Nicho en pabellón techado con jardines interiores, floristería cercana y acceso pavimentado desde el estacionamiento.",
-    precioReferencia: 1490000,
-    precioOficial: 2980000,
-    imagen: "/img/sep-pabellon.jpg",
+      "Lote en jardín con despeje visual hacia el parque, ideal para quienes buscan un entorno despejado y luminoso.",
+    imagen: "/img/sep-lote-03.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-04",
+    titulo: "Sepultura junto a árbol",
+    sector: "Jardín arbolado",
+    descripcion:
+      "Posición junto a un árbol maduro que da sombra y privacidad, con el lote bien delimitado sobre la pradera.",
+    imagen: "/img/sep-lote-04.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-05",
+    titulo: "Sepultura en pradera amplia",
+    sector: "Pradera central · entorno despejado",
+    descripcion:
+      "Lote en una de las praderas más amplias del parque, luminosa y con acceso directo por caminos interiores.",
+    imagen: "/img/sep-lote-05.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-06",
+    titulo: "Sepultura bajo sombra de árbol",
+    sector: "Sector arbolado · sombra de tarde",
+    descripcion:
+      "Fila de lotes junto a arbolado alto: ambiente fresco en verano y un entorno sereno para la visita y el recuerdo.",
+    imagen: "/img/sep-lote-06.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-07",
+    titulo: "Sepultura bajo cedro",
+    sector: "Arboleda de cedros",
+    descripcion:
+      "Lote al pie de un cedro maduro, con el verde del césped y la copa del árbol como entorno natural permanente.",
+    imagen: "/img/sep-lote-07.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-08",
+    titulo: "Sepultura junto a laguna",
+    sector: "Sector laguna · nenúfares",
+    descripcion:
+      "Posición próxima a la laguna del parque, con aves y nenúfares en el entorno. Uno de los sectores más apetecidos.",
+    imagen: "/img/sep-lote-08.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-09",
+    titulo: "Sepultura con vista a laguna",
+    sector: "Sendero laguna · entorno ajardinado",
+    descripcion:
+      "Lote sobre el sendero de acceso a la laguna, combinación de agua, piedras y jardinería cuidada a su alrededor.",
+    imagen: "/img/sep-lote-09.jpg",
+    disponible: true,
+  },
+  {
+    id: "lote-10",
+    titulo: "Sepultura en jardín florido",
+    sector: "Jardín con arbustos en flor",
+    descripcion:
+      "Lote rodeado de arbustos con floración amarilla: color y vida en cada visita durante buena parte del año.",
+    imagen: "/img/sep-lote-10.jpg",
     disponible: true,
   },
 ];
 
 // Mensaje de WhatsApp preconfigurado por producto (más específico = más conversión)
 export function sepulturaWhatsAppUrl(s: Sepultura): string {
-  const msg = `Hola, me interesa la "${s.titulo}" (${s.sector}) que vi en la galería de sepulturas del Parque El Recuerdo Américo Vespucio. ¿Sigue disponible y cuál sería el precio final con todo incluido? ¡Gracias!`;
+  const msg = `Hola, me interesa la "${s.titulo}" (${s.sector}) que vi en la galería de fotos del Parque El Recuerdo Américo Vespucio. ¿Sigue disponible y cuál es el valor con todo incluido? ¡Gracias!`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
-
-// Formato de pesos chilenos: $4.980.000
-export const formatCLP = (n: number): string =>
-  "$" + n.toLocaleString("es-CL");

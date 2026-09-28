@@ -20,7 +20,6 @@ import {
   ExternalLink,
   Leaf,
   Mail,
-  Users,
   BadgePercent,
 } from "lucide-react";
 import {
@@ -45,7 +44,6 @@ import {
   BUSINESS_HOURS,
   SEPULTURAS,
   sepulturaWhatsAppUrl,
-  formatCLP,
 } from "@/lib/site-config";
 
 // ─────────────────────────────────────────────────────────────
@@ -456,9 +454,11 @@ export default function Home() {
                   Sepulturas disponibles en el parque
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
-                  Lotes seleccionados con transferencia inmediata y documentación
-                  notarial incluida, todos al 50% de su valor oficial. Stock
-                  limitado: esta lista se actualiza a medida que se venden.
+                  Fotografías reales de los lotes disponibles, tomadas en el
+                  Parque El Recuerdo Américo Vespucio. Elige el entorno que más
+                  te acomode y consulta su valor final — al 50% del valor
+                  oficial — directamente por WhatsApp. Stock limitado: esta
+                  galería se actualiza a medida que se venden.
                 </p>
               </div>
 
@@ -469,7 +469,7 @@ export default function Home() {
                     className="group flex flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-shadow hover:shadow-md"
                   >
                     {/* Foto + badges */}
-                    <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <div className="relative aspect-[3/4] w-full overflow-hidden">
                       <Image
                         src={s.imagen}
                         alt={`${s.titulo} — ${s.sector}, Parque El Recuerdo Américo Vespucio`}
@@ -511,42 +511,11 @@ export default function Home() {
                         {s.descripcion}
                       </p>
 
-                      <dl className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
-                        <div className="flex items-center gap-1.5">
-                          <dt className="sr-only">Capacidad</dt>
-                          <Users
-                            className="size-4 shrink-0 text-primary/70"
-                            aria-hidden="true"
-                          />
-                          <dd className="text-muted-foreground">{s.capacidad}</dd>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <dt className="sr-only">Tipo</dt>
-                          <dd className="text-muted-foreground">{s.tipo}</dd>
-                        </div>
-                      </dl>
-
-                      {/* Precio */}
-                      <div className="mt-5 border-t pt-4">
-                        <p className="text-sm text-muted-foreground">
-                          Valor oficial{" "}
-                          <span className="line-through">
-                            {formatCLP(s.precioOficial)}
-                          </span>
-                        </p>
-                        <p className="mt-0.5 font-serif text-2xl font-bold text-forest-deep">
-                          {formatCLP(s.precioReferencia)}
-                          <span className="ml-2 align-middle text-xs font-semibold tracking-wide text-gold uppercase">
-                            50% dcto.
-                          </span>
-                        </p>
-                      </div>
-
                       <WhatsAppButton
                         label={
                           s.disponible
-                            ? "Consultar por esta sepultura"
-                            : "Consultar por alternativas"
+                            ? "Consultar este lote"
+                            : "Consultar alternativas"
                         }
                         href={sepulturaWhatsAppUrl(s)}
                         className="mt-5 w-full"
@@ -554,20 +523,22 @@ export default function Home() {
                     </div>
                   </li>
                 ))}
-              </ul>
 
-              <p className="mx-auto mt-10 max-w-2xl text-center text-sm leading-relaxed text-muted-foreground">
-                ¿Buscas otra ubicación o tipo de sepultura dentro del parque?{" "}
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-semibold text-primary underline-offset-4 hover:underline"
-                >
-                  Escríbenos por WhatsApp
-                </a>{" "}
-                y revisamos la disponibilidad completa del día.
-              </p>
+                {/* Tarjeta CTA para completar la grilla (fila final) */}
+                <li className="flex flex-col items-center justify-center rounded-2xl border border-primary/20 bg-secondary/60 p-8 text-center sm:col-span-2">
+                  <p className="font-serif text-xl font-semibold leading-snug text-forest-deep">
+                    ¿Buscas otra ubicación dentro del parque?
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                    Revisamos contigo la disponibilidad completa del día y te
+                    enviamos los valores al 50% por WhatsApp.
+                  </p>
+                  <WhatsAppButton
+                    label="Ver disponibilidad completa"
+                    className="mt-5 w-full"
+                  />
+                </li>
+              </ul>
             </div>
           </section>
 
