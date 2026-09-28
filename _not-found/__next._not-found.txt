@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
-2:I[36315,["/sepultura.cl/_next/static/chunks/fcb12706f309165f.js","/sepultura.cl/_next/static/chunks/0bf9dc0d490362d4.js","/sepultura.cl/_next/static/chunks/364d414fd5567486.js"],"default"]
-3:I[25380,["/sepultura.cl/_next/static/chunks/fcb12706f309165f.js","/sepultura.cl/_next/static/chunks/0bf9dc0d490362d4.js","/sepultura.cl/_next/static/chunks/364d414fd5567486.js"],"default"]
-0:{"buildId":"uBDYZkyRDgAZA_KWN2F2J","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+2:I[39756,["/sepultura.cl/_next/static/chunks/b9bf93524787d0a1.js","/sepultura.cl/_next/static/chunks/9bd97ff5a0566a6d.js","/sepultura.cl/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+3:I[37457,["/sepultura.cl/_next/static/chunks/b9bf93524787d0a1.js","/sepultura.cl/_next/static/chunks/9bd97ff5a0566a6d.js","/sepultura.cl/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
+0:{"buildId":"saMyxWWmgVoD2B6AxEDJ6","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
