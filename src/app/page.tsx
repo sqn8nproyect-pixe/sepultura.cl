@@ -903,6 +903,12 @@ export default function Home() {
                 © {new Date().getFullYear()} Sepulturas Américo Vespucio ·
                 Santiago, Chile. Todos los derechos reservados.
               </p>
+              <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <span>Sitio web realizado por</span>
+                <span className="font-semibold tracking-wide text-white/85">
+                  Cerotraba
+                </span>
+              </p>
             </div>
           </div>
         </footer>
