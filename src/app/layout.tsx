@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Lora } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-
+import { withBasePath } from "@/lib/site-config";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Sepulturas Américo Vespucio" }],
   icons: {
-    icon: "/favicon.svg",
+    icon: withBasePath("/favicon.svg"),
   },
   robots: {
     index: true,
@@ -74,7 +74,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/img/hero-parque.jpg",
+        // URL absoluta: metadataBase ya incluye el basePath del repo
+        // (…/sepultura.cl), por lo que una ruta con "leading slash"
+        // resolvería a /sepultura.cl/sepultura.cl/ (404).
+        url: `${siteUrl}/img/hero-parque.jpg`,
         width: 1344,
         height: 768,
         alt: "Parque cementerio con jardines y árboles en Santiago de Chile",

@@ -12,6 +12,17 @@ export const EMAIL_MAILTO = `mailto:${EMAIL}?subject=${encodeURIComponent(
   "Consulta por sepulturas - Parque El Recuerdo Américo Vespucio"
 )}`;
 
+// ─────────────────────────────────────────────────────────────
+// BASE PATH PARA IMÁGENES (crítico en GitHub Pages)
+// next/image con `unoptimized: true` NO antepone el basePath a
+// las rutas de imágenes: en el sitio exportado apuntarían a la
+// raíz del dominio (404). Este helper garantiza que las rutas
+// empiecen con /sepultura.cl/ en el build estático.
+// ─────────────────────────────────────────────────────────────
+export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+export const withBasePath = (p: string) =>
+  p.startsWith(BASE_PATH) ? p : `${BASE_PATH}${p}`;
+
 // Mensaje preconfigurado: nombre del servicio + ubicación + solicitud de info
 export const WHATSAPP_MESSAGE =
   "Hola, estoy interesado(a) en sepulturas en el Parque El Recuerdo Américo Vespucio (Santiago). Vi la oferta al 50% del valor oficial y quisiera recibir información sobre precios y disponibilidad. ¡Gracias!";
@@ -128,7 +139,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Pradera con sol · árboles al costado",
     descripcion:
       "Lote destacado sobre césped cuidado, en pradera abierta con sol durante la mayor parte del día y árboles en el entorno.",
-    imagen: "/img/sep-lote-01.jpg",
+    imagen: withBasePath("/img/sep-lote-01.jpg"),
     disponible: true,
   },
   {
@@ -137,7 +148,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Pradera norte · filas ordenadas",
     descripcion:
       "Ubicación en pradera amplia con caminos planos y área verde recién mantenida. Sector tranquilo y de fácil acceso.",
-    imagen: "/img/sep-lote-02.jpg",
+    imagen: withBasePath("/img/sep-lote-02.jpg"),
     disponible: true,
   },
   {
@@ -146,7 +157,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Jardines con vista abierta",
     descripcion:
       "Lote en jardín con despeje visual hacia el parque, ideal para quienes buscan un entorno despejado y luminoso.",
-    imagen: "/img/sep-lote-03.jpg",
+    imagen: withBasePath("/img/sep-lote-03.jpg"),
     disponible: true,
   },
   {
@@ -155,7 +166,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Jardín arbolado",
     descripcion:
       "Posición junto a un árbol maduro que da sombra y privacidad, con el lote bien delimitado sobre la pradera.",
-    imagen: "/img/sep-lote-04.jpg",
+    imagen: withBasePath("/img/sep-lote-04.jpg"),
     disponible: true,
   },
   {
@@ -164,7 +175,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Pradera central · entorno despejado",
     descripcion:
       "Lote en una de las praderas más amplias del parque, luminosa y con acceso directo por caminos interiores.",
-    imagen: "/img/sep-lote-05.jpg",
+    imagen: withBasePath("/img/sep-lote-05.jpg"),
     disponible: true,
   },
   {
@@ -173,7 +184,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Sector arbolado · sombra de tarde",
     descripcion:
       "Fila de lotes junto a arbolado alto: ambiente fresco en verano y un entorno sereno para la visita y el recuerdo.",
-    imagen: "/img/sep-lote-06.jpg",
+    imagen: withBasePath("/img/sep-lote-06.jpg"),
     disponible: true,
   },
   {
@@ -182,7 +193,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Arboleda de cedros",
     descripcion:
       "Lote al pie de un cedro maduro, con el verde del césped y la copa del árbol como entorno natural permanente.",
-    imagen: "/img/sep-lote-07.jpg",
+    imagen: withBasePath("/img/sep-lote-07.jpg"),
     disponible: true,
   },
   {
@@ -191,7 +202,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Sector laguna · nenúfares",
     descripcion:
       "Posición próxima a la laguna del parque, con aves y nenúfares en el entorno. Uno de los sectores más apetecidos.",
-    imagen: "/img/sep-lote-08.jpg",
+    imagen: withBasePath("/img/sep-lote-08.jpg"),
     disponible: true,
   },
   {
@@ -200,7 +211,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Sendero laguna · entorno ajardinado",
     descripcion:
       "Lote sobre el sendero de acceso a la laguna, combinación de agua, piedras y jardinería cuidada a su alrededor.",
-    imagen: "/img/sep-lote-09.jpg",
+    imagen: withBasePath("/img/sep-lote-09.jpg"),
     disponible: true,
   },
   {
@@ -209,7 +220,7 @@ export const SEPULTURAS: Sepultura[] = [
     sector: "Jardín con arbustos en flor",
     descripcion:
       "Lote rodeado de arbustos con floración amarilla: color y vida en cada visita durante buena parte del año.",
-    imagen: "/img/sep-lote-10.jpg",
+    imagen: withBasePath("/img/sep-lote-10.jpg"),
     disponible: true,
   },
 ];

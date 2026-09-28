@@ -44,6 +44,7 @@ import {
   BUSINESS_HOURS,
   SEPULTURAS,
   sepulturaWhatsAppUrl,
+  withBasePath,
 } from "@/lib/site-config";
 
 // ─────────────────────────────────────────────────────────────
@@ -243,7 +244,7 @@ export default function Home() {
             className="relative isolate overflow-hidden"
           >
             <Image
-              src="/img/hero-parque.jpg"
+              src={withBasePath("/img/hero-parque.jpg")}
               alt="Jardines y árboles del parque cementerio en Santiago de Chile"
               fill
               priority
@@ -552,7 +553,7 @@ export default function Home() {
               {/* Imagen del parque */}
               <div className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-lg">
                 <Image
-                  src="/img/ubicacion-parque.jpg"
+                  src={withBasePath("/img/ubicacion-parque.jpg")}
                   alt="Avenida arbolada de acceso al parque cementerio en Santiago, con la cordillera de los Andes al fondo"
                   fill
                   sizes="(min-width: 1024px) 50vw, 100vw"
