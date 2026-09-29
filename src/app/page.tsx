@@ -307,7 +307,7 @@ export default function Home() {
                 className="mt-6 font-serif text-4xl font-semibold leading-[1.15] text-white sm:text-5xl lg:text-6xl"
               >
                 Sepulturas en el Parque El Recuerdo Américo Vespucio{" "}
-                <span className="text-gold">con oferta única</span>
+                <span className="text-gold">a precios de oportunidad</span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
