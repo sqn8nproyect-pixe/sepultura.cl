@@ -497,8 +497,8 @@ export default function Home() {
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   Fotografías reales de los lotes disponibles, tomadas en el
                   Parque El Recuerdo Américo Vespucio. Elige el entorno que más
-                  te acomode y consulta su valor final — oferta
-                  real — directamente por WhatsApp. Stock
+                  te acomode y consulta su valor final — oferta única —
+                  directamente por WhatsApp. Stock
                   limitado: esta galería se actualiza a medida que se venden.
                 </p>
               </div>
