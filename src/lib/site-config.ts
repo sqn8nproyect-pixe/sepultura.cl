@@ -25,7 +25,7 @@ export const withBasePath = (p: string) =>
 
 // Mensaje preconfigurado: nombre del servicio + ubicación + solicitud de info
 export const WHATSAPP_MESSAGE =
-  "Hola, estoy interesado(a) en sepulturas en el Parque El Recuerdo Américo Vespucio (Santiago). Vi que tienen un precio de oportunidad y quisiera recibir información sobre precios y disponibilidad. ¡Gracias!";
+  "Hola, estoy interesado(a) en sepulturas en el Parque El Recuerdo Américo Vespucio (Santiago). Vi que tienen una oferta única y quisiera recibir información sobre precios y disponibilidad. ¡Gracias!";
 
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
@@ -45,9 +45,9 @@ export const BUSINESS_HOURS = [
 // ─────────────────────────────────────────────────────────────
 export const FAQS = [
   {
-    question: "¿Por qué la sepultura tiene un precio de oportunidad?",
+    question: "¿Por qué dicen que es una oferta única?",
     answer:
-      "Trabajamos con sepulturas ya constituidas y disponibles para transferencia inmediata, adquiridas a valores de oportunidad que el parque ya no ofrece en su lista de precios actual. Al vender a un precio de oportunidad, ambas partes ganan: tú accedes a un valor muy difícil de obtener directamente en el parque y nosotros damos rotación a nuestro inventario. Es una oportunidad de mercado real, no una oferta engañosa ni un precio sujeto a condiciones ocultas.",
+      "Trabajamos con sepulturas ya constituidas y disponibles para transferencia inmediata, adquiridas a valores que el parque ya no ofrece en su lista de precios actual. Al vender con una oferta única, ambas partes ganan: tú accedes a un valor muy difícil de obtener directamente en el parque y nosotros damos rotación a nuestro inventario. Es una oferta única de mercado, no un engaño ni un precio sujeto a condiciones ocultas.",
   },
   {
     question: "¿Es legal comprar una sepultura a un particular o intermediario?",
@@ -118,7 +118,7 @@ export const TESTIMONIALS = [
 // ✅ FOTOS REALES del Parque El Recuerdo Américo Vespucio
 //    (galería personal del vendedor, seleccionadas 10 de 26).
 //    SIN precios en el sitio: los valores se entregan por
-//    WhatsApp (el precio de oportunidad se
+//    WhatsApp (la oferta única se
 //    comunica en el resto de la página).
 //    Para agregar/quitar fichas: edita este array y guarda la
 //    foto correspondiente en public/img/ (600x800, 3:4).

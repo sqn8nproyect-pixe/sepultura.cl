@@ -66,7 +66,7 @@ const serviceJsonLd = {
   "@type": "Service",
   name: "Venta de sepulturas en Parque El Recuerdo Américo Vespucio",
   description:
-    "Compra-venta de sepulturas y lotes en el Parque El Recuerdo Américo Vespucio, Santiago de Chile. Precio de oportunidad, entrega inmediata, transferencia notarial y documentación incluida.",
+    "Compra-venta de sepulturas y lotes en el Parque El Recuerdo Américo Vespucio, Santiago de Chile. Oferta única, entrega inmediata, transferencia notarial y documentación incluida.",
   serviceType: "Compra-venta de derechos de sepultura",
   areaServed: { "@type": "City", name: "Santiago de Chile" },
   provider: {
@@ -77,7 +77,7 @@ const serviceJsonLd = {
   offers: {
     "@type": "Offer",
     description:
-      "Sepulturas a precio de oportunidad, con 10% de costos de transferencia y documentación notarial cubiertos.",
+      "Sepulturas con oferta única: 10% de costos de transferencia y documentación notarial cubiertos.",
   },
 };
 
@@ -91,9 +91,9 @@ const HERO_CHIPS = [
 const BENEFITS = [
   {
     icon: Tag,
-    title: "Precio de oportunidad",
+    title: "Oferta única",
     description:
-      "Adquiere tu sepultura a un precio de oportunidad muy por debajo del valor de lista del parque. Un ahorro real y verificable en una decisión tan importante para tu familia.",
+      "Adquiere tu sepultura con una oferta única muy por debajo del valor de lista del parque. Un ahorro concreto y verificable en una decisión tan importante para tu familia.",
     highlighted: true,
   },
   {
@@ -130,7 +130,7 @@ const STEPS = [
     icon: FileText,
     title: "Recibe la propuesta completa",
     description:
-      "Te enviamos la información de la sepultura disponible: precio final de oportunidad, ubicación dentro del parque y todos los detalles por escrito.",
+      "Te enviamos la información de la sepultura disponible: precio final de la oferta única, ubicación dentro del parque y todos los detalles por escrito.",
   },
   {
     icon: PenLine,
@@ -299,7 +299,7 @@ export default function Home() {
             <div className="animate-fade-up mx-auto w-full max-w-4xl px-4 py-20 text-center sm:px-6 sm:py-28 lg:py-32">
               <p className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-1.5 text-xs font-medium tracking-wide text-white/95 backdrop-blur sm:text-sm">
                 <MapPin className="size-4 shrink-0 text-gold" aria-hidden="true" />
-                Oportunidad real · Santiago, Chile
+                Oferta única · Santiago, Chile
               </p>
 
               <h1
@@ -307,7 +307,7 @@ export default function Home() {
                 className="mt-6 font-serif text-4xl font-semibold leading-[1.15] text-white sm:text-5xl lg:text-6xl"
               >
                 Sepulturas en el Parque El Recuerdo Américo Vespucio{" "}
-                <span className="text-gold">a precio de oportunidad</span>
+                <span className="text-gold">con oferta única</span>
               </h1>
 
               <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/85 sm:text-lg">
@@ -358,7 +358,7 @@ export default function Home() {
                   id="beneficios-title"
                   className="mt-3 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
                 >
-                  Precio de oportunidad, sin riesgos ni letra chica
+                  Oferta única, sin riesgos ni letra chica
                 </h2>
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   Sabemos que comprar una sepultura es una decisión emocional y
@@ -497,8 +497,8 @@ export default function Home() {
                 <p className="mt-4 leading-relaxed text-muted-foreground">
                   Fotografías reales de los lotes disponibles, tomadas en el
                   Parque El Recuerdo Américo Vespucio. Elige el entorno que más
-                  te acomode y consulta su valor final — a precio de
-                  oportunidad — directamente por WhatsApp. Stock
+                  te acomode y consulta su valor final — oferta
+                  real — directamente por WhatsApp. Stock
                   limitado: esta galería se actualiza a medida que se venden.
                 </p>
               </div>
@@ -549,7 +549,7 @@ export default function Home() {
                         className="absolute top-3 left-3 inline-flex items-center gap-1 rounded-full bg-gold px-3 py-1 text-xs font-bold text-forest-deep shadow"
                       >
                         <Tag className="size-3.5" />
-                        Precio de oportunidad
+                        Oferta única
                       </span>
                       <span
                         className={`absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold backdrop-blur ${
@@ -598,7 +598,7 @@ export default function Home() {
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Revisamos contigo la disponibilidad completa del día y te
-                    enviamos los precios de oportunidad por WhatsApp.
+                    enviamos la oferta única de cada lote por WhatsApp.
                   </p>
                   <WhatsAppButton
                     label="Ver disponibilidad completa"
@@ -900,7 +900,7 @@ export default function Home() {
               </div>
               <p className="mt-4 text-sm leading-relaxed">
                 Servicio de intermediación en la compra-venta de sepulturas en
-                Santiago de Chile. Condiciones de oportunidad, respaldo notarial
+                Santiago de Chile. Oferta única, respaldo notarial
                 y acompañamiento completo hasta la entrega.
               </p>
             </div>
