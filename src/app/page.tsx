@@ -993,6 +993,28 @@ export default function Home() {
                 © {new Date().getFullYear()} Sepulturas Américo Vespucio ·
                 Santiago, Chile. Todos los derechos reservados.
               </p>
+              <p className="flex flex-wrap items-center gap-x-2.5 gap-y-1">
+                <a
+                  href="https://www.funerariasangabriel.cl"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Funeraria San Gabriel — www.funerariasangabriel.cl"
+                  className="inline-flex items-center gap-2 transition-opacity hover:opacity-80"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={withBasePath("/img/funeraria-san-gabriel-logo.png")}
+                    alt="Funeraria San Gabriel"
+                    width={248}
+                    height={200}
+                    className="h-8 w-auto"
+                    loading="lazy"
+                  />
+                  <span className="font-serif text-sm font-semibold text-white">
+                    Funeraria San Gabriel
+                  </span>
+                </a>
+              </p>
               <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
                 <span>Sitio web realizado por</span>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
