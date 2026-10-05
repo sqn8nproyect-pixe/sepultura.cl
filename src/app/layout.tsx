@@ -23,13 +23,11 @@ const lora = Lora({
 
 // ─────────────────────────────────────────────────────────────
 // SEO LOCAL — Optimizado para búsquedas en Santiago / Américo Vespucio
-// En GitHub Pages (NEXT_EXPORT=1) se usa la URL del proyecto;
-// al publicar con dominio propio, actualiza la URL principal.
+// Dominio canónico: https://sepulturasenoferta.cl (Vercel).
+// El espejo de GitHub Pages (NEXT_EXPORT=1) canonicaliza al dominio
+// y lleva noindex para evitar contenido duplicado en Google.
 // ─────────────────────────────────────────────────────────────
-const siteUrl =
-  process.env.NEXT_EXPORT === "1"
-    ? "https://sqn8nproyect-pixe.github.io/sepultura.cl"
-    : "https://www.sepulturasamericovespucio.cl";
+const siteUrl = "https://sepulturasenoferta.cl";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -56,11 +54,15 @@ export const metadata: Metadata = {
   icons: {
     icon: withBasePath("/favicon.svg"),
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: { index: true, follow: true, "max-image-preview": "large" },
-  },
+  robots:
+    process.env.NEXT_EXPORT === "1"
+      ? // Espejo de GitHub Pages: fuera del índice (el canónico es el dominio propio)
+        { index: false, follow: false }
+      : {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, "max-image-preview": "large" },
+        },
   alternates: {
     canonical: "/",
   },

@@ -72,6 +72,14 @@ const serviceJsonLd = {
   provider: {
     "@type": "Organization",
     name: "Sepulturas Américo Vespucio",
+    url: "https://sepulturasenoferta.cl",
+    telephone: "+56984791346",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Santiago",
+      addressRegion: "Región Metropolitana",
+      addressCountry: "CL",
+    },
     areaServed: "Región Metropolitana, Chile",
   },
   offers: {
