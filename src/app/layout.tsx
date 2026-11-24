@@ -32,12 +32,13 @@ const siteUrl = "https://sepulturasenoferta.cl";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "Sepulturas en Venta | Parque El Recuerdo Américo Vespucio, Santiago | Oferta Única",
+    // Bing exige ≤ 60 caracteres (inspección de URL: "Título demasiado largo")
+    default: "Sepulturas en Venta | Parque El Recuerdo Américo Vespucio",
     template: "%s | Sepulturas Américo Vespucio",
   },
   description:
-    "Sepulturas y lotes en venta en el Parque El Recuerdo Américo Vespucio, Santiago. Adquiérelas con una oferta única: entrega inmediata, transferencia notarial y documentación incluida. Consulta por WhatsApp.",
+    // Bing exige ≤ 160 caracteres (inspección de URL: "meta descripción demasiado larga")
+    "Sepulturas y lotes en venta en el Parque El Recuerdo Américo Vespucio, Santiago. Entrega inmediata, traspaso notarial incluido. Cotiza por WhatsApp.",
   keywords: [
     "sepulturas en venta Santiago",
     "lotes de sepultura en venta",
