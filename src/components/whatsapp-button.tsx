@@ -23,6 +23,8 @@ interface WhatsAppButtonProps {
   plain?: boolean;
   /** URL alternativa de WhatsApp (ej: mensaje preconfigurado por producto específico) */
   href?: string;
+  /** Ubicación del CTA para Clarity (se publica como data-wa-section) */
+  track?: string;
 }
 
 // Botón principal de llamada a la acción → abre WhatsApp con mensaje preconfigurado
@@ -31,12 +33,14 @@ export function WhatsAppButton({
   className,
   size = "default",
   href,
+  track,
 }: WhatsAppButtonProps) {
   return (
     <a
       href={href ?? WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
+      data-wa-section={track}
       aria-label={`${label} (abre WhatsApp con un mensaje preconfigurado)`}
       className={cn(
         "group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-whatsapp font-semibold text-white shadow-lg shadow-whatsapp/30 transition-all duration-200 hover:-translate-y-0.5 hover:bg-whatsapp-dark hover:shadow-xl hover:shadow-whatsapp/40 focus-visible:ring-[3px] focus-visible:ring-whatsapp/50 focus-visible:outline-none active:translate-y-0",
@@ -62,6 +66,7 @@ export function FloatingWhatsApp() {
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
+      data-wa-section="flotante"
       aria-label="Chatea con nosotros por WhatsApp — abre un mensaje preconfigurado"
       className="fixed right-4 bottom-4 z-50 block rounded-full sm:right-6 sm:bottom-6 print:hidden"
     >

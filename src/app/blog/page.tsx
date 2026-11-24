@@ -138,7 +138,7 @@ export default function BlogIndexPage() {
               Te respondemos personalmente con disponibilidad y valores finales,
               sin compromiso.
             </p>
-            <WhatsAppButton />
+            <WhatsAppButton track="blog_indice" />
           </div>
         </div>
       </section>

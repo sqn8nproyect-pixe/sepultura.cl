@@ -230,3 +230,22 @@ export function sepulturaWhatsAppUrl(s: Sepultura): string {
   const msg = `Hola, me interesa la "${s.titulo}" (${s.sector}) que vi en la galería de fotos del Parque El Recuerdo Américo Vespucio. ¿Sigue disponible y cuál es el valor con todo incluido? ¡Gracias!`;
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
 }
+
+// ─────────────────────────────────────────────────────────────
+// MICROSOFT CLARITY (vía E del plan: medición y conversión)
+// Herramienta gratuita de Microsoft: graba sesiones anónimas, mapas de
+// calor y eventos, sin cookies publicitarias.
+//
+// CÓMO ACTIVAR (2 minutos):
+//   1. Crear cuenta/carta gratis en https://clarity.microsoft.com
+//   2. "New project" → nombre del sitio → dominio sepulturasenoferta.cl
+//   3. Copiar el ID del proyecto (aparece en Settings y en el snippet)
+//   4. Pegarlo abajo (o en la variable de entorno NEXT_PUBLIC_CLARITY_ID,
+//      que tiene prioridad) y desplegar.
+//
+// El ID es público por diseño: queda visible en el HTML de cualquier sitio
+// con Clarity, no es un secreto. Con el ID vacío el script NO se carga
+// (cero requests a clarity.ms) y los eventos son no-ops.
+// ─────────────────────────────────────────────────────────────
+export const CLARITY_PROJECT_ID =
+  process.env.NEXT_PUBLIC_CLARITY_ID ?? "";

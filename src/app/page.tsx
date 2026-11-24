@@ -281,7 +281,11 @@ export default function Home() {
               </a>
             </nav>
 
-            <WhatsAppButton label="Consultar" className="px-5 py-2.5 text-sm" />
+            <WhatsAppButton
+              label="Consultar"
+              className="px-5 py-2.5 text-sm"
+              track="header"
+            />
           </div>
         </header>
 
@@ -326,7 +330,11 @@ export default function Home() {
               </p>
 
               <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <WhatsAppButton size="lg" className="w-full sm:w-auto" />
+                <WhatsAppButton
+                  size="lg"
+                  className="w-full sm:w-auto"
+                  track="hero"
+                />
                 <a
                   href="#proceso"
                   className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/35 px-7 py-3 font-medium text-white/95 backdrop-blur transition-colors hover:bg-white/10 sm:w-auto"
@@ -402,7 +410,7 @@ export default function Home() {
               </div>
 
               <div className="mt-10 flex flex-col items-center gap-2 text-center">
-                <WhatsAppButton />
+                <WhatsAppButton track="beneficios" />
                 <p className="text-xs text-muted-foreground">
                   Respuesta rápida en horario hábil · Sin compromiso
                 </p>
@@ -481,6 +489,7 @@ export default function Home() {
                 <WhatsAppButton
                   label="Hablar con un asesor"
                   className="w-full shrink-0 bg-white text-forest-deep shadow-none hover:bg-white/90 lg:w-auto"
+                  track="proceso"
                 />
               </div>
             </div>
@@ -595,6 +604,7 @@ export default function Home() {
                         }
                         href={sepulturaWhatsAppUrl(s)}
                         className="mt-5 w-full"
+                        track="galeria_lote"
                       />
                     </div>
                   </li>
@@ -612,6 +622,7 @@ export default function Home() {
                   <WhatsAppButton
                     label="Ver disponibilidad completa"
                     className="mt-5 w-full"
+                    track="galeria_disponibilidad"
                   />
                 </li>
                 </ul>
@@ -894,7 +905,7 @@ export default function Home() {
                   Escríbenos por WhatsApp y te respondemos en horario hábil,
                   sin compromiso.
                 </p>
-                <WhatsAppButton />
+                <WhatsAppButton track="faq" />
               </div>
             </div>
           </section>
@@ -921,11 +932,13 @@ export default function Home() {
                   size="lg"
                   label="Quiero información de sepulturas"
                   className="w-full sm:w-auto"
+                  track="cta_final"
                 />
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-wa-section="cta_final_telefono"
                   className="text-base font-medium text-white/90 transition-colors hover:text-white hover:underline"
                 >
                   {WHATSAPP_DISPLAY}
@@ -979,6 +992,7 @@ export default function Home() {
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-wa-section="footer_contacto"
                     className="inline-flex items-center gap-2.5 transition-colors hover:text-white"
                   >
                     <WhatsAppIcon className="size-5 shrink-0 text-whatsapp" />
@@ -1032,6 +1046,9 @@ export default function Home() {
                       {...(link.external
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
+                      data-wa-section={
+                        link.external ? "footer_enlaces" : undefined
+                      }
                       className="transition-colors hover:text-white hover:underline"
                     >
                       {link.label}

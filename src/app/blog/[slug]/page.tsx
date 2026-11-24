@@ -217,7 +217,10 @@ export default async function BlogPostPage({
               El botón abre WhatsApp con un mensaje que ya menciona esta guía:
               te respondemos con disponibilidad y valores finales.
             </p>
-            <WhatsAppButton href={blogWhatsAppUrl(post)} />
+            <WhatsAppButton
+              href={blogWhatsAppUrl(post)}
+              track={`articulo-${post.slug}`}
+            />
           </div>
 
           {/* Artículos relacionados */}
