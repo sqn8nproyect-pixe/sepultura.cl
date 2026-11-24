@@ -47,6 +47,7 @@ import {
   sepulturaWhatsAppUrl,
   withBasePath,
 } from "@/lib/site-config";
+import { POSTS, blogPath } from "@/lib/blog-posts";
 
 // ─────────────────────────────────────────────────────────────
 // SEO ESTRUCTURADO (JSON-LD): FAQPage + Service para búsquedas locales
@@ -786,6 +787,60 @@ export default function Home() {
             </div>
           </section>
 
+          {/* ═══════════ GUÍAS DEL BLOG ═══════════ */}
+          <section
+            aria-labelledby="blog-title"
+            className="py-16 sm:py-24"
+          >
+            <div className="mx-auto w-full max-w-3xl px-4 sm:px-6">
+              <div className="text-center">
+                <p className="text-sm font-semibold uppercase tracking-widest text-primary/80">
+                  Guías y consejos
+                </p>
+                <h2
+                  id="blog-title"
+                  className="mt-3 font-serif text-3xl font-semibold tracking-tight sm:text-4xl"
+                >
+                  Aprende antes de decidir
+                </h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  Guías claras sobre traspasos, precios y tipos de sepulturas
+                  en Chile, escritas con datos reales del mercado. Decidir con
+                  información es parte del proceso.
+                </p>
+              </div>
+
+              <div className="mt-10 grid gap-5 sm:grid-cols-2">
+                {POSTS.map((post) => (
+                  <a
+                    key={post.slug}
+                    href={blogPath(post.slug)}
+                    className="group flex flex-col rounded-2xl border bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+                  >
+                    <h3 className="font-serif text-lg font-semibold leading-snug group-hover:underline">
+                      {post.shortTitle}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                      {post.description}
+                    </p>
+                    <p className="mt-4 text-sm font-semibold text-primary">
+                      Leer la guía →
+                    </p>
+                  </a>
+                ))}
+              </div>
+
+              <p className="mt-8 text-center">
+                <a
+                  href={blogPath()}
+                  className="font-semibold text-primary hover:underline"
+                >
+                  Ver todas las guías del blog →
+                </a>
+              </p>
+            </div>
+          </section>
+
           {/* ═══════════ PREGUNTAS FRECUENTES ═══════════ */}
           <section
             id="faq"
@@ -968,6 +1023,7 @@ export default function Home() {
                   { href: "#proceso", label: "Cómo funciona" },
                   { href: "#ubicacion", label: "Ubicación del parque" },
                   { href: "#faq", label: "Preguntas frecuentes" },
+                  { href: blogPath(), label: "Blog y guías" },
                   { href: WHATSAPP_URL, label: "Consultar por WhatsApp", external: true },
                 ].map((link) => (
                   <li key={link.label}>
