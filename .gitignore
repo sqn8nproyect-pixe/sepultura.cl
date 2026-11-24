@@ -82,3 +82,12 @@ public/logo.svg
 
 # Artefactos de herramientas del sistema
 tool-results/
+# ─── Blindaje post-limpieza (24-nov): no republicar lo ya sacado del repo ───
+# Documentos de trabajo ajenos al sitio (limpiados del historial público)
+tmp_docs/
+# Datos del usuario: exports GSC y capturas (permanecen locales)
+upload/
+# Staging del repo privado de informes
+github_publish/
+# Imágenes candidatas sin uso en el sitio
+cand-*
